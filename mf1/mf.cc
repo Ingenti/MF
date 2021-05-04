@@ -14,11 +14,6 @@ This is the function you need to implement. Quick reference:
 */
 void mf(int ny, int nx, int hy, int hx, const float *in, float *out) 
 {
-  std::vector<float> s{5.0, 6.0, 4.0, 3.0, 2.0, 6.0, 7.0, 9.0, 3.0, 4.0};
-  std::nth_element(s.begin(), s.begin() + s.size()/2, s.end());
-  std::nth_element(s.begin(), s.begin() + (s.size()/2)-1, s.end());
-  std::cout << "The median is " << (s[s.size()/2] + s[s.size()/2-1]) / 2 <<  '\n';
-
   for(int y = 0; y < ny; y++)
   {
     for(int x = 0; x < nx; x++)
@@ -45,13 +40,4 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
     }
   }
 
-}
-
-
-int main()
-{
-  const float *i;
-  float *o;
-  mf(1,2,3,4,i,o);
-  return 0;
 }
