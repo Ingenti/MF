@@ -42,11 +42,3 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
 
 }
 
-
-int main()
-{
-  const float *i;
-  float *o;
-  mf(1,2,3,4,i,o);
-  return 0;
-}
