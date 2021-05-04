@@ -1,4 +1,5 @@
 #include <vector>
+#include <algorithm>
 
 
 /*
@@ -28,7 +29,9 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
           v.push_back(in[a+b*nx]);
         }
       }
-      out[x+y*nx] = std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
+      
+      std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
+      out[x+y*nx] = v[v.size()/2];
 
     }
   }
