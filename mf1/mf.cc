@@ -1,5 +1,6 @@
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 
 /*
@@ -13,7 +14,6 @@ This is the function you need to implement. Quick reference:
 */
 void mf(int ny, int nx, int hy, int hx, const float *in, float *out) 
 {
-
 
   for(int y = 0; y < ny; y++)
   {
@@ -31,9 +31,22 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       }
       
       std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
-      out[x+y*nx] = v[v.size()/2];
+      if(v.size() % 2 == 1){out[x+y*nx] = v[v.size()/2];}
+      else
+      {
+        out[x+y*nx] = v[v.size()/2]+v[v.size()/2-1];
+      }
 
     }
   }
 
+}
+
+
+int main()
+{
+  const float *i;
+  float *o;
+  mf(1,2,3,4,i,o);
+  return 0;
 }
