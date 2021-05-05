@@ -40,6 +40,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       {
         out[x+y*nx] = (v[v.size()/2] + v[v.size()/2-1]) / 2;
       }
+      v.clear();
     }
   }
 }
