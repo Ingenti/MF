@@ -19,7 +19,6 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
     for(int x = 0; x < nx; x++)
     {
       #pragma omp parallel for
-      v.clear();
       for(int b = std::max(y-hy,0); b < std::min(y+hy+1,ny); b++)
       {
 
@@ -41,7 +40,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
         std::nth_element(v.begin(), v.begin() + (v.size()/2)-1, v.end());
         out[x+y*nx] = (v[v.size()/2] + v[v.size()/2-1]) / 2;
       }
-
+      v.clear();
     }
   }
 
