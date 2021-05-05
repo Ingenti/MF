@@ -28,7 +28,6 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
         for(int a = alkua; a < loppua; a++)
         {
           v.push_back(in[a+b*nx]);
-          v.
         }
         
       }
