@@ -16,6 +16,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
   std::vector<double> v;
   for(int y = 0; y < ny; y++)
   {
+    #pragma omp parallel for
     for(int x = 0; x < nx; x++)
     {
       int alkub = std::max(y-hy,0);
@@ -24,7 +25,6 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       int loppua = std::min(x+hx+1,nx);
       for(int b = alkub; b < loppub; b++)
       {
-        #pragma omp parallel for
         for(int a = alkua; a < loppua; a++)
         {
           v.push_back(in[a+b*nx]);
