@@ -20,7 +20,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
     for(int x = 0; x < nx; x++)
     {
 
-      v.clear();
+      v = {};
       for(int b = std::max(y-hy,0); b < std::min(y+hy+1,ny); b++)
       {
 
@@ -29,7 +29,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
         {
           v.push_back(in[a+b*nx]);
         }
-        
+
       }
 
       if(v.size() % 2 == 1)
