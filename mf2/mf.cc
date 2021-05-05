@@ -13,7 +13,7 @@ This is the function you need to implement. Quick reference:
 */
 void mf(int ny, int nx, int hy, int hx, const float *in, float *out) 
 {
-  //#pragma omp parallel for
+  #pragma omp parallel for
   for(int y = 0; y < ny; y++)
   {
     std::vector<double> v;
@@ -38,6 +38,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       }
       else
       {
+        std::nth_element(v.begin(), v.begin() + v.size()/2 - 1, v.end());
         out[x+y*nx] = (v[v.size()/2] + v[v.size()/2-1]) / 2;
       }
     }
