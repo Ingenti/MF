@@ -14,6 +14,7 @@ This is the function you need to implement. Quick reference:
 void mf(int ny, int nx, int hy, int hx, const float *in, float *out) 
 {
   std::vector<double> v;
+  #pragma omp parallel for
   for(int y = 0; y < ny; y++)
   {
     for(int x = 0; x < nx; x++)
@@ -24,7 +25,6 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       int loppua = std::min(x+hx+1,nx);
       for(int b = alkub; b < loppub; b++)
       {
-        //#pragma omp parallel for
         for(int a = alkua; a < loppua; a++)
         {
           v.push_back(in[a+b*nx]);
