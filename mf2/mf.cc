@@ -18,7 +18,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
   {
     for(int x = 0; x < nx; x++)
     {
-      std::vector<double> v;
+      std::vector<double> v={};
       int alkub = std::max(y-hy,0);
       int alkua = std::max(x-hx,0);
       int loppub = std::min(y+hy+1,ny);
