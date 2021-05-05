@@ -24,13 +24,13 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
 
       for(int b = std::max(y-hy,0); b < std::min(y+hy+1,ny); b++)
       {
-        #pragma omp parallel for
         for(int a = std::max(x-hx,0); a < std::min(x+hx+1,nx); a++)
         {
           v.push_back(in[a+b*nx]);
         }
       }
       
+      #pragma omp parallel
       if(v.size() % 2 == 1)
       {
         std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
