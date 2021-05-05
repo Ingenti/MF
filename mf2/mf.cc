@@ -14,16 +14,15 @@ This is the function you need to implement. Quick reference:
 void mf(int ny, int nx, int hy, int hx, const float *in, float *out) 
 {
   std::vector<double> v;
+  #pragma omp parallel for
   for(int y = 0; y < ny; y++)
   {
     for(int x = 0; x < nx; x++)
     {
-      v = {};
       int alkub = std::max(y-hy,0);
       int alkua = std::max(x-hx,0);
       int loppub = std::min(y+hy+1,ny);
       int loppua = std::min(x+hx+1,nx);
-      #pragma omp parallel for
       for(int b = alkub; b < loppub; b++)
       {
         for(int a = alkua; a < loppua; a++)
