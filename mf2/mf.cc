@@ -13,12 +13,12 @@ This is the function you need to implement. Quick reference:
 */
 void mf(int ny, int nx, int hy, int hx, const float *in, float *out) 
 {
-  //#pragma omp parallel for
+  #pragma omp parallel for
   for(int y = 0; y < ny; y++)
   {
-    std::vector<double> v;
     for(int x = 0; x < nx; x++)
     {
+      std::vector<double> v;
       int alkub = std::max(y-hy,0);
       int alkua = std::max(x-hx,0);
       int loppub = std::min(y+hy+1,ny);
@@ -38,7 +38,6 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       }
       else
       {
-        std::nth_element(v.begin(), v.begin() + v.size()/2 - 1, v.end());
         out[x+y*nx] = (v[v.size()/2] + v[v.size()/2-1]) / 2;
       }
     }
