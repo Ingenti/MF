@@ -18,11 +18,11 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
   {
     for(int x = 0; x < nx; x++)
     {
-      double alkub = std::max(y-hy,0);
-      double alkua = std::max(x-hx,0);
-      double loppub = std::min(y+hy+1,ny);
-      double loppua = std::min(x+hx+1,nx);
-      
+      int alkub = std::max(y-hy,0);
+      int alkua = std::max(x-hx,0);
+      int loppub = std::min(y+hy+1,ny);
+      int loppua = std::min(x+hx+1,nx);
+
       for(int b = alkub; b < loppub; b++)
       {
         #pragma omp parallel for
