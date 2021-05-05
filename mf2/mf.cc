@@ -13,10 +13,10 @@ This is the function you need to implement. Quick reference:
 */
 void mf(int ny, int nx, int hy, int hx, const float *in, float *out) 
 {
-  std::vector<double> v;
   #pragma omp parallel for
   for(int y = 0; y < ny; y++)
   {
+    std::vector<double> v;
     for(int x = 0; x < nx; x++)
     {
       int alkub = std::max(y-hy,0);
