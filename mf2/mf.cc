@@ -22,7 +22,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       int alkua = std::max(x-hx,0);
       int loppub = std::min(y+hy+1,ny);
       int loppua = std::min(x+hx+1,nx);
-      //#pragma omp parallel for
+      #pragma omp parallel for
       for(int b = alkub; b < loppub; b++)
       {
         for(int a = alkua; a < loppua; a++)
