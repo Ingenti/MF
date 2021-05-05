@@ -33,7 +33,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
         std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
         out[x+y*nx] = v[v.size()/2];
       }
-      else
+      if(v.size() % 2 == 0)
       {
         std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
         std::nth_element(v.begin(), v.begin() + (v.size()/2)-1, v.end());
@@ -42,5 +42,4 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       v.clear();
     }
   }
-
 }
