@@ -24,7 +24,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
       int loppua = std::min(x+hx+1,nx);
       for(int b = alkub; b < loppub; b++)
       {
-        #pragma omp parallel for
+        //#pragma omp parallel for
         for(int a = alkua; a < loppua; a++)
         {
           v.push_back(in[a+b*nx]);
