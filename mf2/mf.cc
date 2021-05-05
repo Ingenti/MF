@@ -17,12 +17,11 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
 
   for(int y = 0; y < ny; y++)
   {
-    #pragma omp parallel for
     for(int x = 0; x < nx; x++)
     {
 
       v.clear();
-
+      #pragma omp parallel for
       for(int b = std::max(y-hy,0); b < std::min(y+hy+1,ny); b++)
       {
         for(int a = std::max(x-hx,0); a < std::min(x+hx+1,nx); a++)
