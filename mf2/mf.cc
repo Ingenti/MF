@@ -29,8 +29,7 @@ void mf(int ny, int nx, int hy, int hx, const float *in, float *out)
           v.push_back(in[a+b*nx]);
         }
       }
-      
-      #pragma omp parallel
+
       if(v.size() % 2 == 1)
       {
         std::nth_element(v.begin(), v.begin() + v.size()/2, v.end());
